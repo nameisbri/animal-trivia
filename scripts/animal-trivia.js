@@ -1,3 +1,10 @@
+// Decode HTML entities
+function decodeHtmlEntities(text) {
+  const textArea = document.createElement("textarea");
+  textArea.innerHTML = text;
+  return textArea.value;
+}
+
 // API CONSTRUCTOR
 
 class AnimalTrivia {
@@ -82,10 +89,10 @@ function displayQuestion() {
   const currentQ = questions[currentQuestion];
 
   questionTitle.textContent = `Question: ${currentQuestion + 1}`;
-  questionContent.textContent = currentQ.question;
+  questionContent.textContent = decodeHtmlEntities(currentQ.question);
 
-  const allAnswers = currentQ.incorrect_answers.slice();
-  allAnswers.push(currentQ.correct_answer);
+  const allAnswers = currentQ.incorrect_answers.slice().map(decodeHtmlEntities);
+  allAnswers.push(decodeHtmlEntities(currentQ.correct_answer));
 
   for (let i = allAnswers.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -112,7 +119,7 @@ function displayQuestion() {
 function handleAnswer(selectedAnswer, clickedItem) {
   const currentQ = questions[currentQuestion];
 
-  if (selectedAnswer === currentQ.correct_answer) {
+  if (selectedAnswer === decodeHtmlEntities(currentQ.correct_answer)) {
     clickedItem.classList.add("correct");
     score += 5;
     console.log("Score increased! New score:", score);
@@ -123,7 +130,8 @@ function handleAnswer(selectedAnswer, clickedItem) {
     const allItems = document.querySelectorAll(".q__item");
     allItems.forEach((item) => {
       if (
-        item.querySelector(".q__option").textContent === currentQ.correct_answer
+        item.querySelector(".q__option").textContent ===
+        decodeHtmlEntities(currentQ.correct_answer)
       ) {
         item.classList.add("correct");
       }
