@@ -1,6 +1,4 @@
-*,
-::before,
-::after {
+*, ::before, ::after {
   padding: 0;
   margin: 0;
 }
@@ -47,7 +45,7 @@ body {
   margin-bottom: 1rem;
 }
 .q__content {
-  background-color: #ffffff;
+  background-color: #FFFFFF;
   border: solid 0.25rem #ff5e4e;
   height: auto;
   border-radius: 0.625rem;
@@ -57,7 +55,7 @@ body {
   font-weight: 700;
 }
 .q__item {
-  background-color: #ffffff;
+  background-color: #FFFFFF;
   height: 10vh;
   border-radius: 0.625rem;
   margin-bottom: 1rem;
@@ -83,5 +81,5 @@ body {
 }
 
 .wrong {
-  background-color: rgba(230, 127, 127, 0.881);
-}/*# sourceMappingURL=question.css.map */
+  background-color: rgba(195, 195, 195, 0.881);
+}
