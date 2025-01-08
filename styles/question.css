@@ -1,12 +1,37 @@
-/* Colors */
-/* Typography */
+*, ::before, ::after {
+  padding: 0;
+  margin: 0;
+}
+
 html {
-  background-color: #7ea984;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
+body {
+  background-image: url(../assets/welcome-background.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+.header-container {
+  display: flex;
+  justify-content: end;
+}
+
+.coins {
+  display: flex;
+  align-items: center;
+  width: 15%;
+  background-color: rgba(128, 128, 128, 0.8);
+  gap: 1rem;
+}
+.coins__number {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
 .q {
-  padding: 1rem;
+  padding: 3rem 1rem;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -15,12 +40,13 @@ html {
   width: 90%;
 }
 .q__title {
-  color: #FFFFFF;
+  color: black;
   font-size: 1.875rem;
   margin-bottom: 1rem;
 }
 .q__content {
-  background-color: #f4daad;
+  background-color: #FFFFFF;
+  border: solid 0.25rem #ff5e4e;
   height: auto;
   border-radius: 0.625rem;
   padding: 50px 1rem;
@@ -35,18 +61,15 @@ html {
   margin-bottom: 1rem;
   display: flex;
   align-items: center;
+  border: solid 4px gray;
+  cursor: pointer;
 }
-.q__item--1 {
-  border: solid 4px #ff5e4e;
+.q__item:hover {
+  transform: scale(1.05);
 }
-.q__item--2 {
-  border: solid 4px rgba(0, 0, 255, 0.573);
-}
-.q__item--3 {
-  border: solid 4px rgba(228, 228, 8, 0.432);
-}
-.q__item--4 {
-  border: solid 4px green;
+.q__item:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 .q__option {
   text-align: center;
