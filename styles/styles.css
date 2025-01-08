@@ -1,0 +1,80 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url(../assets/welcome-background.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+h1 {
+  font-size: 8rem;
+  color: #16c47f;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  margin-top: 10rem;
+}
+
+.header-container {
+  display: flex;
+  justify-content: end;
+}
+
+.coins {
+  display: flex;
+  align-items: center;
+  width: 15%;
+  background-color: rgba(128, 128, 128, 0.8);
+  gap: 1rem;
+}
+.coins__number {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 10rem;
+}
+.form__input {
+  font-size: 2rem;
+  width: 50%;
+  border: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  padding: 1.25rem 2.5rem;
+  border-radius: 10px;
+}
+.form__button {
+  width: 50%;
+  font-size: 3rem;
+  color: #ffffff;
+  background-color: #16c47f;
+  border: none;
+  padding: 1.25rem 2.5rem;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 6rem;
+}
+.footer__button {
+  font-size: 1.5rem;
+  background-color: #ff9d23;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  padding: 1rem 1rem;
+}/*# sourceMappingURL=styles.css.map */
