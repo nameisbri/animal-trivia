@@ -1,0 +1,62 @@
+/* Colors */
+/* Typography */
+html {
+  background-color: #7ea984;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.q {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.q__wrapper {
+  width: 90%;
+}
+.q__title {
+  color: #FFFFFF;
+  font-size: 1.875rem;
+  margin-bottom: 1rem;
+}
+.q__content {
+  background-color: #f4daad;
+  height: auto;
+  border-radius: 0.625rem;
+  padding: 50px 1rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: 700;
+}
+.q__item {
+  background-color: #FFFFFF;
+  height: 10vh;
+  border-radius: 0.625rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+}
+.q__item--1 {
+  border: solid 4px #ff5e4e;
+}
+.q__item--2 {
+  border: solid 4px rgba(0, 0, 255, 0.573);
+}
+.q__item--3 {
+  border: solid 4px rgba(228, 228, 8, 0.432);
+}
+.q__item--4 {
+  border: solid 4px green;
+}
+.q__option {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.correct {
+  background-color: rgba(109, 247, 109, 0.776);
+}
+
+.wrong {
+  background-color: rgba(195, 195, 195, 0.881);
+}/*# sourceMappingURL=question.css.map */
