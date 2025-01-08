@@ -38,7 +38,6 @@ function getRandomQuestions(questions, amount) {
 
 const allQuestions = new AnimalTrivia();
 
-// Game state variables
 let currentQuestion = 0;
 let score = 0;
 let playerName = "";
@@ -48,41 +47,46 @@ const introScreen = document.querySelector(".intro-screen");
 const questionScreen = document.querySelector(".question-screen");
 const scoreScreen = document.querySelector(".score-screen");
 const startForm = document.querySelector(".form");
-// const answerSelection = document.querySelectorAll(".game__answer");
-
 async function startGame(e) {
   e.preventDefault();
 
-  // Get player name from input
   playerName = e.target.querySelector(".form__input").value;
 
-  // Hide intro screen and show question screen
   introScreen.style.display = "none";
-  questionScreen.style.display = "block";
 
-  // Load questions from API and store them
   questions = await allQuestions.fetchTriviaQuestions();
 
-  displayQuestion(); // Show first question
+  const questionContainer = document.querySelector(".q__wrapper");
+  questionContainer.addEventListener("click", (e) => {
+    const clickedOption = e.target.closest(".q__item");
+    if (clickedOption) {
+      const selectedAnswer =
+        clickedOption.querySelector(".q__option").textContent;
+      handleAnswer(selectedAnswer, clickedOption); // Pass the clicked element
+    }
+  });
+
+  displayQuestion();
+
+  questionScreen.style.display = "block";
 }
 
-// Function to display question
 function displayQuestion() {
   const questionTitle = document.querySelector(".q__title");
   const questionContent = document.querySelector(".q__content");
-  const optionElements = document.querySelectorAll(".q__option");
+  const qWrapper = document.querySelector(".q__wrapper");
+
+  const existingItems = document.querySelectorAll(".q__item");
+  existingItems.forEach((item) => item.remove());
 
   const currentQ = questions[currentQuestion];
 
-  // Update question number and text
   questionTitle.textContent = `Question: ${currentQuestion + 1}`;
   questionContent.textContent = currentQ.question;
 
-  // Combine and shuffle all answers
   const allAnswers = currentQ.incorrect_answers.slice();
   allAnswers.push(currentQ.correct_answer);
 
-  // Fisher-Yates shuffle
   for (let i = allAnswers.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     const temp = allAnswers[i];
@@ -90,71 +94,75 @@ function displayQuestion() {
     allAnswers[j] = temp;
   }
 
-  // Update answer options
-  optionElements.forEach((option, index) => {
-    option.textContent = allAnswers[index];
+  allAnswers.forEach((answer) => {
+    const qItem = document.createElement("div");
+    qItem.classList.add("q__item");
 
-    // Remove old event listeners
-    const oldItem = option.closest(".q__item");
-    const newItem = oldItem.cloneNode(true);
-    oldItem.parentNode.replaceChild(newItem, oldItem);
+    const qOption = document.createElement("p");
+    qOption.classList.add("q__option");
+    qOption.textContent = answer;
 
-    // Add new click handler
-    newItem.addEventListener("click", () => {
-      handleAnswer(allAnswers[index]);
-    });
+    qItem.appendChild(qOption);
+    qWrapper.appendChild(qItem);
   });
 
-  // Update score display
   document.querySelector(".coins__number").textContent = score;
 }
 
-// Function to handle answer selection
-function handleAnswer(selectedAnswer) {
+function handleAnswer(selectedAnswer, clickedItem) {
   const currentQ = questions[currentQuestion];
 
-  // Check if answer is correct
   if (selectedAnswer === currentQ.correct_answer) {
-    score += 5; // Add 5 coins for correct answer
+    clickedItem.classList.add("correct");
+    score += 5;
+    console.log("Score increased! New score:", score);
     document.querySelector(".coins__number").textContent = score;
+  } else {
+    clickedItem.classList.add("wrong");
+    // Show correct answer
+    const allItems = document.querySelectorAll(".q__item");
+    allItems.forEach((item) => {
+      if (
+        item.querySelector(".q__option").textContent === currentQ.correct_answer
+      ) {
+        item.classList.add("correct");
+      }
+    });
   }
 
-  // Move to next question or end game
-  if (currentQuestion < questions.length - 1) {
-    currentQuestion++;
-    displayQuestion();
-  } else {
-    endGame();
-  }
+  const allItems = document.querySelectorAll(".q__item");
+  allItems.forEach((item) => {
+    item.style.pointerEvents = "none";
+  });
+
+  setTimeout(() => {
+    if (currentQuestion < questions.length - 1) {
+      currentQuestion++;
+      displayQuestion();
+    } else {
+      endGame();
+    }
+  }, 1000);
 }
 
-// Function to end game
 function endGame() {
-  // Hide question screen and show score screen
   questionScreen.style.display = "none";
   scoreScreen.style.display = "block";
 
-  // Update final score displays
   document.querySelector(".score-board__score").textContent = `${score}/100`;
   document.querySelector(".score-summary__coin-number").textContent = score;
 }
 
-// Event Listeners
-// - Start button click
 startForm.addEventListener("submit", startGame);
 
-// - Play again button click
 document.getElementById("restartButton").addEventListener("click", () => {
-  // Reset game state
   currentQuestion = 0;
   score = 0;
   playerName = "";
   questions = [];
 
-  // Reset displays
   document.querySelector(".coins__number").textContent = "0";
 
-  // Show intro screen, hide others
   introScreen.style.display = "block";
   questionScreen.style.display = "none";
   scoreScreen.style.display = "none";
