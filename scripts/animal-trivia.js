@@ -122,7 +122,6 @@ function handleAnswer(selectedAnswer, clickedItem) {
   if (selectedAnswer === decodeHtmlEntities(currentQ.correct_answer)) {
     clickedItem.classList.add("correct");
     score += 5;
-    console.log("Score increased! New score:", score);
     document.querySelector(".coins__number").textContent = score;
   } else {
     clickedItem.classList.add("wrong");
