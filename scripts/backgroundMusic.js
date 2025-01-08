@@ -1,31 +1,28 @@
-// Select the sound button and audio element
-const soundButton = document.getElementById("soundButton");
-const backgroundAudio = document.getElementById("backgroundAudio");
+let backgroundAudio = document.createElement("audio");
+backgroundAudio.src = "./assets/audio/background-music.mp3";
+backgroundAudio.loop = true;
+document.body.appendChild(backgroundAudio);
 
 // Automatically play the audio when the page loads
-window.addEventListener("load", () => {
-  backgroundAudio.play();
-  soundButton.textContent = "🔇 Sound Off";
-});
+backgroundAudio.play();
 
-// Track whether the audio is playing
-let isPlaying = true;
+const soundButton = document.getElementById("soundButton");
+const startButton = document.getElementById("startButton");
+const restartButton = document.getElementById("restartButton");
 
-// Function to toggle sound on/off
-function toggleSound() {
-  if (isPlaying) {
-    // Pause the audio
-    backgroundAudio.pause();
-    soundButton.textContent = "🔊 Sound On";
-  } else {
-    // Play the audio
+// Toggle sound on/off
+soundButton.addEventListener("click", () => {
+  if (backgroundAudio.paused) {
     backgroundAudio.play();
     soundButton.textContent = "🔇 Sound Off";
+  } else {
+    backgroundAudio.pause();
+    soundButton.textContent = "🔊 Sound On";
   }
+});
 
-  // Toggle the isPlaying flag
-  isPlaying = !isPlaying;
-}
-
-// Add event listener to the button
-soundButton.addEventListener("click", toggleSound);
+// Placeholder -- change to question page
+startButton.addEventListener("click", (e) => {
+  e.preventDefault(); // Prevent the default form submission
+  window.location.href = "scores.html"; // Redirect to scores page
+});
