@@ -4,9 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles/styles.css" />
+    <link rel="stylesheet" href="./styles/question.css" />
+    <link rel="stylesheet" href="./styles/scores.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
     <script src="./scripts/animal-trivia.js" defer></script>
-    <script src="./scripts/trivia-api.js" defer></script>
     <script src="./scripts/backgroundMusic.js" defer></script>
     <title>Animal Trivia</title>
   </head>
@@ -20,10 +21,67 @@
       </div>
       <h1>ANIMAL TRIVIA</h1>
     </header>
-    <form action="#" class="form">
-      <input type="text" placeholder="Enter your name" class="form__input" />
-      <button type="submit" class="form__button" id="startButton">START</button>
-    </form>
+
+    <main>
+      <!-- Intro Screen -->
+      <section class="intro-screen">
+        <form action="#" class="form">
+          <input
+            type="text"
+            name="playerName"
+            placeholder="Enter your name"
+            class="form__input"
+          />
+          <button type="submit" class="form__button" id="startButton">
+            START
+          </button>
+        </form>
+      </section>
+
+      <!-- Question Screen -->
+      <section class="question-screen" style="display: none">
+        <div class="q__wrapper">
+          <h1 class="q__title">Question:1</h1>
+          <div class="q__content">
+            Which animal is known to have the longest lifespan?
+          </div>
+          <div class="q__item">
+            <p class="q__option">option1</p>
+          </div>
+          <div class="q__item">
+            <p class="q__option">option2</p>
+          </div>
+          <div class="q__item">
+            <p class="q__option">option3</p>
+          </div>
+          <div class="q__item">
+            <p class="q__option">option4</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Score Screen -->
+      <section class="score-screen" style="display: none">
+        <header class="score-board">
+          <h1 class="score-board__title">Total Score</h1>
+          <p class="score-board__score">0/100</p>
+        </header>
+        <main class="score-summary">
+          <h2 class="score-summary__congratulations">Congratulations!</h2>
+          <div class="score-summary__coin">
+            <img
+              src="./assets/coin-large.png"
+              alt="coin-large"
+              class="score-summary__coin-icon"
+            />
+            <p class="score-summary__coin-number">0</p>
+          </div>
+          <button id="restartButton" class="score-summary__button">
+            PLAY AGAIN
+          </button>
+        </main>
+      </section>
+    </main>
     <footer class="footer">
       <button class="footer__button" id="soundButton">🔊 Sound On</button>
       <button class="footer__button">📝 Privacy Policy</button>
