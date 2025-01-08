@@ -8,7 +8,6 @@ backgroundAudio.play();
 
 const soundButton = document.getElementById("soundButton");
 const startButton = document.getElementById("startButton");
-const restartButton = document.getElementById("restartButton");
 
 // Toggle sound on/off
 soundButton.addEventListener("click", () => {

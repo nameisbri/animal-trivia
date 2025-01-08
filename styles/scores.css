@@ -1,21 +1,48 @@
+.comic-neue-light {
+  font-family: "Comic Neue", serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.comic-neue-regular {
+  font-family: "Comic Neue", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.comic-neue-bold {
+  font-family: "Comic Neue", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+h1,
+h2 {
+  font-family: "Comic Neue", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+p,
+button,
+input {
+  font-family: "Comic Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  background-image: url(../assets/welcome-background.jpg);
-  background-position: center;
-  background-size: cover;
-}
-
 h1 {
   font-size: 8rem;
-  color: #fffaec;
+  color: rgba(22, 196, 127, 0.8);
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   text-align: center;
-  margin-top: 10rem;
+  margin-top: 5rem;
 }
 
 .score-board {
@@ -23,14 +50,27 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 2rem;
+}
+.score-board__title {
+  font-size: 5rem;
+  color: #fffaec;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  text-align: center;
 }
 .score-board__score {
+  font-size: 5rem;
   background-color: #ffd65a;
   width: 80%;
   text-align: center;
   padding: 3rem 2rem;
   border-radius: 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+@media (min-width: 768px) and (-webkit-min-device-pixel-ratio: 1) {
+  .score-board__score {
+    width: 60%;
+  }
 }
 
 .score-summary {
@@ -43,7 +83,7 @@ h1 {
   color: #fffaec;
   text-align: center;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-  margin-top: 5rem;
+  margin-top: 3rem;
 }
 .score-summary__coin {
   display: flex;

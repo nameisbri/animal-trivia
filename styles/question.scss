@@ -1,7 +1,5 @@
 @use "./partials/mixins" as *;
-
-
-
+@use "./partials/globals" as *;
 
 *,
 ::before,
@@ -48,7 +46,7 @@ body {
     width: 90%;
     margin: 0 auto;
 
-    @include desktop{
+    @include desktop {
       width: 60%;
     }
   }
@@ -106,5 +104,3 @@ body {
 .wrong {
   background-color: rgba(230, 127, 127, 0.881);
 }
-
-
