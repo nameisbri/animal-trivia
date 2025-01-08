@@ -156,6 +156,9 @@ function endGame() {
   questionScreen.style.display = "none";
   scoreScreen.style.display = "block";
 
+  const scoreTitle = document.querySelector(".score-summary__congratulations");
+  scoreTitle.textContent = `Congratulations, ${playerName}!`;
+
   document.querySelector(".score-board__score").textContent = `${score}/100`;
   document.querySelector(".score-summary__coin-number").textContent = score;
 }
