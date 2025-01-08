@@ -1,3 +1,36 @@
+.comic-neue-light {
+  font-family: "Comic Neue", serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.comic-neue-regular {
+  font-family: "Comic Neue", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.comic-neue-bold {
+  font-family: "Comic Neue", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+h1,
+h2 {
+  font-family: "Comic Neue", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+p,
+button,
+input {
+  font-family: "Comic Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -10,17 +43,11 @@ body {
   background-size: cover;
 }
 
-h1 {
-  font-size: 8rem;
-  color: #16c47f;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-  text-align: center;
-  margin-top: 10rem;
-}
-
 .header-container {
   display: flex;
   justify-content: end;
+  margin-right: 2rem;
+  margin-top: 2rem;
 }
 
 .coins {
@@ -28,6 +55,7 @@ h1 {
   align-items: center;
   width: 15%;
   background-color: rgba(128, 128, 128, 0.8);
+  border-radius: 10px;
   gap: 1rem;
 }
 .coins__number {
@@ -84,6 +112,7 @@ h1 {
   justify-content: center;
   gap: 1rem;
   margin-top: 6rem;
+  margin-bottom: 3rem;
 }
 .footer__button {
   font-size: 1.5rem;
