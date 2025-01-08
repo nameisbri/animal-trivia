@@ -1,3 +1,36 @@
+.comic-neue-light {
+  font-family: "Comic Neue", serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.comic-neue-regular {
+  font-family: "Comic Neue", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.comic-neue-bold {
+  font-family: "Comic Neue", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+h1,
+h2 {
+  font-family: "Comic Neue", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+p,
+button,
+input {
+  font-family: "Comic Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
 *,
 ::before,
 ::after {
