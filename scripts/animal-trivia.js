@@ -122,7 +122,6 @@ function handleAnswer(selectedAnswer, clickedItem) {
   if (selectedAnswer === decodeHtmlEntities(currentQ.correct_answer)) {
     clickedItem.classList.add("correct");
     score += 5;
-    console.log("Score increased! New score:", score);
     document.querySelector(".coins__number").textContent = score;
   } else {
     clickedItem.classList.add("wrong");
@@ -156,6 +155,9 @@ function handleAnswer(selectedAnswer, clickedItem) {
 function endGame() {
   questionScreen.style.display = "none";
   scoreScreen.style.display = "block";
+
+  const scoreTitle = document.querySelector(".score-summary__congratulations");
+  scoreTitle.textContent = `Congratulations, ${playerName}!`;
 
   document.querySelector(".score-board__score").textContent = `${score}/100`;
   document.querySelector(".score-summary__coin-number").textContent = score;

@@ -20,9 +20,3 @@ soundButton.addEventListener("click", () => {
     soundButton.textContent = "🔊 Sound On";
   }
 });
-
-// Placeholder -- change to question page
-startButton.addEventListener("click", (e) => {
-  e.preventDefault(); // Prevent the default form submission
-  window.location.href = "scores.html"; // Redirect to scores page
-});
