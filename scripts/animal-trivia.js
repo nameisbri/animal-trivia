@@ -56,8 +56,12 @@ const scoreScreen = document.querySelector(".score-screen");
 const startForm = document.querySelector(".form");
 async function startGame(e) {
   e.preventDefault();
-
   playerName = e.target.querySelector(".form__input").value;
+
+  if (!validatePlayerName(playerName)) {
+    showNameError("Name must be 2-20 characters long");
+    return;
+  }
 
   introScreen.style.display = "none";
 
@@ -161,6 +165,22 @@ function endGame() {
 
   document.querySelector(".score-board__score").textContent = `${score}/100`;
   document.querySelector(".score-summary__coin-number").textContent = score;
+}
+
+function validatePlayerName(name) {
+  return name.trim().length >= 2 && name.trim().length <= 20;
+}
+
+function showNameError(message) {
+  const form = document.querySelector(".form");
+  const existingError = form.querySelector(".error-message");
+  if (!existingError) {
+    const errorDiv = document.createElement("div");
+    errorDiv.className = "error-message";
+    errorDiv.style.color = "red";
+    errorDiv.textContent = message;
+    form.appendChild(errorDiv);
+  }
 }
 
 startForm.addEventListener("submit", startGame);
